@@ -34,12 +34,11 @@ mod = "mod4"
 terminal = "kitty"
 
 colors = {
-            "focus":"#ffaa00",
-            "prim1":"#AD35C0",
-            "prim2":"#480E6D",
-            "bg":"#170F26",
-            "fg":"#ffddff",
-            "fg2":"#aa69aa",
+            "focus":"#00ffff",
+            "prim1":"#73349f",
+            "prim2":"#4494d4",
+            "bg":"#192049",
+            "fg":"#DBE0FF"
         }
 
 
@@ -82,7 +81,18 @@ keys = [
     Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer set Master 5%+"), desc="Raise volume"),
     Key([], "XF86AudioLowerVolume", lazy.spawn("amixer set Master 5%-"), desc="Lower volume"),
     Key([mod], "r", lazy.spawn("rofi -combi-modi window,drun,ssh -theme Arc-Dark -font 'hack 10' -show combi -icon-theme 'Arc' -show-icons"), desc="Launch manager"),
-    Key([mod], "v", lazy.spawn("kitty nvim"), desc="launch nvim"),
+
+    KeyChord(
+        [mod],
+        "e",
+        [
+            Key([], "e", lazy.spawn("emacsclient -c -a ''"), desc="launch emacs"),
+            Key([], "b", lazy.spawn("emacsclient -c -a '' --eval '(ibuffer)'"), desc="list open emacs buffers"),
+            Key([], "d", lazy.spawn("emacsclient -c -a '' --eval '(dired nil)'"), desc="open emacs file manager"),
+            Key([], "s", lazy.spawn("emacsclient -c -a '' --eval '(eshell)'"), desc="open emacs shell"),
+        ],
+        name="emacs"
+    ),
 
     KeyChord(
         [mod, "shift"],
@@ -181,24 +191,24 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.GroupBox(highlight_method='block', font='Hack Nerd Font', foreground=colors["fg"], background=colors["prim2"], inactive=colors["fg2"], this_current_screen_border = colors["prim1"], disable_drag=True),
-                widget.TextBox(text='\ueb70 ', fontsize=32, padding=-4, foreground=colors["prim2"], background=colors["prim1"], font="Hack Nerd Font"),
+                widget.GroupBox(highlight_method='block', font='Hack Nerd Font', foreground=colors["fg"], background=colors["prim2"], this_current_screen_border = colors["prim1"], disable_drag=True),
+                widget.TextBox(text='\ueb70', fontsize=32, padding=-4, foreground=colors["prim2"], background=colors["prim1"], font="Hack Nerd Font"),
                 widget.Chord(background=colors["prim1"]),
                 widget.TextBox(text='\ueb70', fontsize=32, padding=-4, foreground=colors["prim1"], font="Hack Nerd Font"),
                 widget.Spacer(),
                 widget.Systray(),
-                widget.TextBox(text=' \ueb6f',fontsize=32, padding=-4, foreground=colors["prim1"], font="Hack Nerd Font"),
+                widget.TextBox(text='\ueb6f',fontsize=32, padding=-4, foreground=colors["prim1"], font="Hack Nerd Font"),
                 widget.CurrentLayout(background=colors["prim1"]),
-                widget.TextBox(text=' \ueb6f',fontsize=32, padding=-4, foreground=colors["prim2"], background=colors["prim1"], font="Hack Nerd Font"),
+                widget.TextBox(text='\ueb6f',fontsize=32, padding=-4, foreground=colors["prim2"], background=colors["prim1"], font="Hack Nerd Font"),
                 widget.Net(format="\ueaa1 {up} \uea9a {down}", prefix='k', background=colors["prim2"]),
-                widget.TextBox(text=' \ueb6f',fontsize=32, padding=-4, foreground=colors["prim1"], background=colors["prim2"], font="Hack Nerd Font"),
+                widget.TextBox(text='\ueb6f',fontsize=32, padding=-4, foreground=colors["prim1"], background=colors["prim2"], font="Hack Nerd Font"),
                 widget.PulseVolume(background=colors["prim1"], update_interval=0.1),
-                widget.TextBox(text=' \ueb6f',fontsize=32, padding=-4, foreground=colors["prim2"], background=colors["prim1"], font="Hack Nerd Font"),
+                widget.TextBox(text='\ueb6f',fontsize=32, padding=-4, foreground=colors["prim2"], background=colors["prim1"], font="Hack Nerd Font"),
                 widget.Battery(background=colors["prim2"], format='{percent:2.0%}'),
                 #widget.BatteryIcon(background=colors["prim2"], update_interval=1),
                 widget.BatteryIcon(background=colors["prim2"], theme_path="~/.config/qtile/batteryicons", update_interval=1),
-                widget.TextBox(text=' \ueb6f',fontsize=32, padding=-4, foreground=colors["prim1"], background=colors["prim2"], font="Hack Nerd Font"),
-                widget.Clock(format="%Y-%m-%d %a %H:%M %p   9;9u", background=colors["prim1"]),
+                widget.TextBox(text='\ueb6f',fontsize=32, padding=-4, foreground=colors["prim1"], background=colors["prim2"], font="Hack Nerd Font"),
+                widget.Clock(format="%Y-%m-%d %a %H:%M %p", background=colors["prim1"]),
             ],
             24,
             background=colors["bg"],

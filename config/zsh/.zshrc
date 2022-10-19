@@ -6,10 +6,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+PATH="$HOME/.emacs.d/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
-ZSH=/usr/share/oh-my-zsh/
+export ZSH=/usr/share/oh-my-zsh
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -77,7 +77,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(sudo git)
 
 
 # User configuration
@@ -106,16 +106,36 @@ plugins=(git)
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
+
+
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
   mkdir $ZSH_CACHE_DIR
 fi
 
 source $ZSH/oh-my-zsh.sh
 
-alias yay="paru -Syyuu"
+alias yay="paru -Syyu"
 alias nay="paru -Rnu"
+
+LIVE_COUNTER=$(ps a | awk '{print $2}' | grep -vi "tty*" | uniq | wc -l);
+
+if [ $LIVE_COUNTER -eq 1 ]; then
+
+     neofetch|lolcat -f
+
+fi
+
+export HISTFILE="$XDG_STATE_HOME"/zsh/hist
+alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
+export MYSQL_HISTFILE="$XDG_DATA_HOME"/mysql_history
+export PYTHONSTARTUP="${XDG_CONFIG_HOME}/python/pythonrc"
+export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+export ANDROID_HOME="$XDG_DATA_HOME"/android
+export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-

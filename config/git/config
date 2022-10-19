@@ -1,5 +1,3 @@
 [user]
-	name = DisguisedPigeon
 	email = rubcessis.unofficial@gmail.com
-[core]
-	editor = nvim
+	name = DisguisedPigeon

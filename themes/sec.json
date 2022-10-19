@@ -1,0 +1,39 @@
+{
+  "qtile":{
+    "focus":"#ffaa00",
+    "prim1": "#AD35C0",
+    "prim2": "#480E6D",
+    "bg":"#170F26",
+    "fg":"#ffddff",
+    "fg2":"#aa69aa"
+  },
+  "kitty":{
+    "foreground":"#ffddff",
+    "background":"#170f26",
+    "color0": "#170f26",
+    "color8":null,
+    "color1": "#CC2416",
+    "color9":null, 
+    "color2": "#84b824",
+    "color10":null,
+    "color3": "#fdf149",
+    "color11":null,
+    "color4": "#222AA8",
+    "color12":null,
+    "color5": "#AD35C0",
+    "color13":null,
+    "color6": "#23CACB",
+    "color14":null,
+    "color7": "#dbe0ff",
+    "color15":null,
+    "cursor": "#c0caf5",
+    "cursor_text_color":"#1a1b26",
+    "selection_foreground":"#8F29D9",
+    "selection_background":"#28115C"
+  },
+  "nitrogen":{
+    "file":"/home/dpigeon/.wallpapers/Wallpaper (15).png",
+    "mode":"2",
+    "bgcolor":"#192049"
+  }
+}
