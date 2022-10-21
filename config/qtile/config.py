@@ -198,7 +198,7 @@ screens = [
                 #widget.BatteryIcon(background=colors["prim2"], update_interval=1),
                 widget.BatteryIcon(background=colors["prim2"], theme_path="~/.config/qtile/batteryicons", update_interval=1),
                 widget.TextBox(text=' \ueb6f',fontsize=32, padding=-4, foreground=colors["prim1"], background=colors["prim2"], font="Hack Nerd Font"),
-                widget.Clock(format="%Y-%m-%d %a %H:%M %p   9;9u", background=colors["prim1"]),
+                widget.Clock(format="%Y-%m-%d %a %H:%M %p   ", background=colors["prim1"]),
             ],
             24,
             background=colors["bg"],

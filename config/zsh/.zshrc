@@ -118,13 +118,15 @@ source $ZSH/oh-my-zsh.sh
 
 alias yay="paru -Syyu"
 alias nay="paru -Rnu"
+alias ls="exa -lha"
+alias vim="nvim"
 
 LIVE_COUNTER=$(ps a | awk '{print $2}' | grep -vi "tty*" | uniq | wc -l);
 
 if [ $LIVE_COUNTER -eq 1 ]; then
 
      neofetch|lolcat -f
-
+     #neofetch
 fi
 
 export HISTFILE="$XDG_STATE_HOME"/zsh/hist
