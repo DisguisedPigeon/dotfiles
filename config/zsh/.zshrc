@@ -137,5 +137,7 @@ export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export ANDROID_HOME="$XDG_DATA_HOME"/android
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 
+alias ls="exa -l"
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

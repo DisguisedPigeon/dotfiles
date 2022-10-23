@@ -3,7 +3,7 @@ import sys
 
 configs = {
         "kitty" : "./config/kitty/color.ini",
-        "qtile" : "./config/qtile/config.py",
+        "qtile" : "./config/qtile/themes/custom.json",
         "nitrogen" : "./config/nitrogen/bg-saved.cfg",
         }
 
@@ -25,23 +25,23 @@ def read_configs():
     with open(configs["kitty"], 'r') as f:
         files["kitty"] = f.readlines()
 
-    with open(configs["qtile"], 'r') as f:
-        files["qtile"] = f.readlines()
-
     with open(configs["nitrogen"], 'r') as f:
         files["nitrogen"] = f.readlines()
 
 
     return files
 
+def write_qtile(theme):
+    global configs
+    final_text = json.dumps(theme["qtile"], indents = 2)
+    with open (configs["qtile"], w) as f:
+        f.write(final_text)
+
 def write_files(contents):
     global configs
 
     with open(configs["kitty"], "w") as f:
         f.write(contents["kitty"])
-
-    with open(configs["qtile"], "w") as f:
-        f.write(contents["qtile"])
 
     with open(configs["nitrogen"], "w") as f:
         f.write(contents["nitrogen"])
@@ -60,15 +60,6 @@ def apply_configs(theme, files):
     files["kitty"] = aux
     
     aux = ""
-    for i, val in enumerate(files["qtile"]):
-        for j in theme["qtile"].keys():
-            if val.strip().startswith("\"" + j):
-                val = val[:-11] + "\"" + theme["qtile"][j] +"\",\n"
-
-        aux += val
-    files["qtile"] = aux
-
-    aux = ""
     for i, val in enumerate(files["nitrogen"]):
         for j in theme["nitrogen"].keys():
             if val.startswith(j):
@@ -77,6 +68,8 @@ def apply_configs(theme, files):
     files["nitrogen"] = aux
 
     write_files(files)
+    write_qtile(theme)
+
 
 def main(args):
     theme = load_theme("./themes/"+args)

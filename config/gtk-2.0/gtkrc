@@ -2,8 +2,8 @@
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
 include "/home/dpigeon/.gtkrc-2.0.mine"
-gtk-theme-name="Mist"
-gtk-icon-theme-name="Adwaita"
+gtk-theme-name="dracula"
+gtk-icon-theme-name="dracula"
 gtk-font-name="Cantarell 11"
 gtk-cursor-theme-name="Adwaita"
 gtk-cursor-theme-size=0
@@ -15,4 +15,5 @@ gtk-enable-event-sounds=1
 gtk-enable-input-feedback-sounds=1
 gtk-xft-antialias=1
 gtk-xft-hinting=1
-gtk-xft-hintstyle="hintmedium"
+gtk-xft-hintstyle="hintslight"
+gtk-xft-rgba="rgb"
