@@ -120,6 +120,8 @@ alias yay="paru -Syu"
 alias nay="paru -Rnu"
 alias meh="paru -Sy"
 alias cat="bat"
+alias ls="exa -lha"
+alias vim="nvim"
 
 LIVE_COUNTER=$(ps a | awk '{print $2}' | grep -vi "tty*" | uniq | wc -l);
 

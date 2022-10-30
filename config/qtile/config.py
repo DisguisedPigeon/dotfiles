@@ -24,7 +24,6 @@ import subprocess
 def autostart():
     subprocess.call([path.join(qtile_path, 'autostart.sh')])
 
-
 main = None
 dgroups_key_binder = None
 dgroups_app_rules = []

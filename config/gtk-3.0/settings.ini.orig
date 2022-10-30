@@ -1,8 +1,14 @@
 [Settings]
-
 gtk-application-prefer-dark-theme=true
+<<<<<<< HEAD
 gtk-theme-name=dracula
 gtk-icon-theme-name=dracula
+gtk-font-name=Cantarell 11
+=======
+gtk-theme-name=Flat-Remix-GTK-Violet-Dark
+gtk-icon-theme-name=Flat-Remix-Violet-Dark
+gtk-font-name=FontAwesome 11
+>>>>>>> 81e93048a384aa5f8d72948bafaaa4af35a4d707
 gtk-cursor-theme-name=Adwaita
 gtk-cursor-theme-size=0
 gtk-toolbar-style=GTK_TOOLBAR_BOTH_HORIZ
