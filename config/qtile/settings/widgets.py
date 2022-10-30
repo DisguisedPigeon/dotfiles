@@ -25,7 +25,7 @@ def powerline(fg="light", bg="dark", orientation="left"):
     if orientation == "left":
         return widget.TextBox(
             **base(fg, bg),
-            text="\ueb6f", # Icon: nf-oct-triangle_left
+            text=" \ueb6f", # Icon: nf-oct-triangle_left
             fontsize=37,
             padding=-4
         )
@@ -73,8 +73,11 @@ primary_widgets = [
     *workspaces(),
 
     separator(),
+    powerline('color1', 'dark'),
 
-    powerline('color4', 'dark'),
+    widget.Chord(background=colors['color1']),
+
+    powerline('color4', 'color1'),
 
     icon(bg="color4", text=' '), # Icon: nf-fa-download
     
@@ -85,7 +88,7 @@ primary_widgets = [
         no_update_string='0',
         display_format='{updates}',
         update_interval=1800,
-        custom_command='checkupdates',
+        distro="Arch_checkupdates"
     ),
 
     powerline('color3', 'color4'),

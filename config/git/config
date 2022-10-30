@@ -1,3 +1,5 @@
 [user]
 	email = rubcessis.unofficial@gmail.com
 	name = DisguisedPigeon
+[safe]
+	directory = /opt/flutter

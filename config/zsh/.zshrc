@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-PATH="$HOME/.emacs.d/bin:$PATH"
+PATH="$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH=/usr/share/oh-my-zsh
@@ -116,15 +116,17 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 
-alias yay="paru -Syyu"
+alias yay="paru -Syu"
 alias nay="paru -Rnu"
+alias meh="paru -Sy"
+alias cat="bat"
 
 LIVE_COUNTER=$(ps a | awk '{print $2}' | grep -vi "tty*" | uniq | wc -l);
 
 if [ $LIVE_COUNTER -eq 1 ]; then
-
-     neofetch|lolcat -f
-
+  bullshit | cowsay -f $(exa /usr/share/cows | shuf -n 1) | lolcat -f
+else
+  pokemon-colorscripts.py -r --no-title
 fi
 
 export HISTFILE="$XDG_STATE_HOME"/zsh/hist
@@ -138,6 +140,10 @@ export ANDROID_HOME="$XDG_DATA_HOME"/android
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 
 alias ls="exa -l"
+export JAVA_HOME='/usr/lib/jvm/java-8-openjdk'
+export ANDROID_SDK_ROOT='/opt/android-sdk'
+export CHROME_EXECUTABLE="/bin/chromium"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/lib/"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

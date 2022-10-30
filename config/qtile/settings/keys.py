@@ -33,6 +33,9 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod], "w", lazy.window.kill()),
     ([mod, "control"], "r", lazy.reload_config()),
     ([mod, "control"], "q", lazy.shutdown()),
+    ([mod, "control"], "t", lazy.window.toggle_floating()),
+    ([mod, "control"], "s", lazy.spawn("shutdown now")),
+    ([mod, "control"], "x", lazy.spawn("reboot")),
 
     # Launch apps
     ([mod], "Return", lazy.spawn(terminal)),
@@ -49,7 +52,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ]]
 
 # KeyChords
-keys.extend ([KeyChord(key[0], key[1], *key[2:]) for key in [
+keys.extend ([KeyChord(key[0], key[1], key[2], mode=True, name="Resize") for key in [
 
     #Resize
     ([mod, "shift"], "r", [Key(key[0], key[1], *key[2:]) for key in [
