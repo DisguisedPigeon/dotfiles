@@ -3,3 +3,5 @@
 	name = DisguisedPigeon
 [safe]
 	directory = /opt/flutter
+[pull]
+	rebase = off

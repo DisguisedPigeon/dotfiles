@@ -126,7 +126,9 @@ alias vim="nvim"
 LIVE_COUNTER=$(ps a | awk '{print $2}' | grep -vi "tty*" | uniq | wc -l);
 
 if [ $LIVE_COUNTER -eq 1 ]; then
-  bullshit | cowsay -f $(exa /usr/share/cows | shuf -n 1) | lolcat -f
+  #neofetch | lolcat -f -S 20
+  #bullshit | cowsay -f $(exa /usr/share/cows | shuf -n 1) | lolcat -f
+  pokemon-colorscripts.py -r -b --no-title
 else
   pokemon-colorscripts.py -r --no-title
 fi
@@ -139,7 +141,6 @@ export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export ANDROID_HOME="$XDG_DATA_HOME"/android
-export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 
 alias ls="exa -l"
 export JAVA_HOME='/usr/lib/jvm/java-8-openjdk'

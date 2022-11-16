@@ -87,8 +87,8 @@ primary_widgets = [
         colour_no_updates=colors['text'],
         no_update_string='0',
         display_format='{updates}',
-        update_interval=1800,
-        distro="Arch_checkupdates"
+        update_interval=60,
+        distro="Arch_paru"
     ),
 
     powerline('color3', 'color4'),

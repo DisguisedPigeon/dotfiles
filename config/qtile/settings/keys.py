@@ -10,7 +10,7 @@ theme = "dracula"
 icon_theme = "Dracula"
 font = "hack"
 app_launcher = f"rofi -combi-modi window,drun,ssh -font '{font} 10' -show combi -icon-theme '{icon_theme}' -show-icons"
-screenshot = "scrot 'Arch-%y-%m-%d-%s.jpg' -e 'mv $f ~/screenshots'"
+screenshot = "scrot 'Arch-%y-%m-%d-%s.jpg' -e 'mv $f ~/Imágenes/screenshots'"
 raise_volume = "amixer set Master 5%+"
 lower_volume = "amixer set Master 5%-"
 

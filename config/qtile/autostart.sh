@@ -1,6 +1,8 @@
 #!/bin/sh
 
-# systray battery icon
+./autostart-pri.sh &
+conky &
+nitrogen --restore &
 cbatticon -u 5 &
-# systray volume
 volumeicon &
+picom &
