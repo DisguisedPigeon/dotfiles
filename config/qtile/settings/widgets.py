@@ -2,6 +2,10 @@ from libqtile import widget
 from .theme import colors
 
 def base(fg='text', bg='dark'): 
+    if not (fg in colors):
+        fg = fg[:-1] + str(int(fg[-1:])-4)
+    if not (bg in colors):
+        bg = bg[:-1] + str(int(bg[-1:])-4)
     return {
         'foreground': colors[fg],
         'background': colors[bg]
@@ -21,7 +25,7 @@ def icon(fg='text', bg='dark', fontsize=16, text="?"):
     )
 
 
-def powerline(fg="light", bg="dark", orientation="left"):
+def powerline(bg="dark", fg="light", orientation="left"):
     if orientation == "left":
         return widget.TextBox(
             **base(fg, bg),
@@ -52,6 +56,7 @@ def workspaces():
             padding_x=5,
             borderwidth=1,
             active=colors['active'],
+            block_highlight_text_color=colors['dark'],
             inactive=colors['inactive'],
             rounded=False,
             highlight_method='block',
@@ -73,16 +78,16 @@ primary_widgets = [
     *workspaces(),
 
     separator(),
-    powerline('color1', 'dark'),
+    powerline('dark', 'color6'),
 
-    widget.Chord(background=colors['color1']),
+    widget.Chord(**base(bg='color6')),
 
-    powerline('color4', 'color1'),
+    powerline('color6', 'color5'),
 
-    icon(bg="color4", text=' '), # Icon: nf-fa-download
+    icon(bg="color5", text=' '), # Icon: nf-fa-download
     
     widget.CheckUpdates(
-        background=colors['color4'],
+        **base(bg='color5'),
         colour_have_updates=colors['text'],
         colour_no_updates=colors['text'],
         no_update_string='0',
@@ -91,27 +96,27 @@ primary_widgets = [
         distro="Arch_paru"
     ),
 
-    powerline('color3', 'color4'),
+    powerline('color5', 'color4'),
 
-    icon(bg="color3", text=' '),  # Icon: nf-fa-feed
+    icon(bg="color4", text=' '),  # Icon: nf-fa-feed
     
-    widget.Net(**base(bg='color3'), interface='wlan0'),
+    widget.Net(**base(bg='color4'), interface='wlan0'),
 
-    powerline('color2', 'color3'),
+    powerline('color4', 'color3'),
 
-    widget.CurrentLayoutIcon(**base(bg='color2'), scale=0.65),
+    widget.CurrentLayoutIcon(**base(bg='color3'), scale=0.65),
 
-    widget.CurrentLayout(**base(bg='color2'), padding=5),
+    widget.CurrentLayout(**base(bg='color3'), padding=5),
 
-    powerline('color1', 'color2'),
+    powerline('color3', 'color2'),
 
-    icon(bg="color1", fontsize=17, text=' '), # Icon: nf-mdi-calendar_clock
+    icon(bg="color2", fontsize=17, text=' '), # Icon: nf-mdi-calendar_clock
 
-    widget.Clock(**base(bg='color1'), format='%d/%m/%Y - %H:%M '),
+    widget.Clock(**base(bg='color2'), format='%d/%m/%Y - %H:%M '),
 
-    powerline('dark', 'color1'),
+    powerline('color2', 'color1'),
 
-    widget.Systray(background=colors['dark'], padding=5),
+    widget.Systray(**base(bg='color1'), padding=5),
 ]
 
 secondary_widgets = [

@@ -6,15 +6,13 @@ from .path import qtile_path
 
 
 def load_theme():
-    theme = "dracula"
-
     config = path.join(qtile_path, "config.json")
     if path.isfile(config):
         with open(config) as f:
             theme = json.load(f)["theme"]
     else:
         with open(config, "w") as f:
-            f.write(f'{{"theme": "{theme}"}}\n')
+            f.write(f'{{"theme": "onedark"}}\n')
 
 
     theme_file = path.join(qtile_path, "themes", f'{theme}.json')

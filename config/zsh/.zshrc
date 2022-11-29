@@ -120,7 +120,9 @@ alias yay="paru -Syu"
 alias nay="paru -Rnu"
 alias meh="paru -Sy"
 alias cat="bat"
-alias ls="exa -lha"
+alias ls="ptls"
+alias cp="ptcp"
+alias pwd="ptpwd"
 alias vim="nvim"
 
 LIVE_COUNTER=$(ps a | awk '{print $2}' | grep -vi "tty*" | uniq | wc -l);
@@ -142,8 +144,8 @@ export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export ANDROID_HOME="$XDG_DATA_HOME"/android
 
-alias ls="exa -l"
-export JAVA_HOME='/usr/lib/jvm/java-8-openjdk'
+alias clear="clear && pokemon-colorscripts.py -r --no-title"
+export JAVA_HOME=/usr/lib/jvm/java-19-openjdk
 export ANDROID_SDK_ROOT='/opt/android-sdk'
 export CHROME_EXECUTABLE="/bin/chromium"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/lib/"
