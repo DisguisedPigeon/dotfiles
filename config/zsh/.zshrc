@@ -128,11 +128,12 @@ alias vim="nvim"
 LIVE_COUNTER=$(ps a | awk '{print $2}' | grep -vi "tty*" | uniq | wc -l);
 
 if [ $LIVE_COUNTER -eq 1 ]; then
-  #neofetch | lolcat -f -S 20
+  (neofetch && echo "I use arch BTW" && echo "") | lolcat -f
   #bullshit | cowsay -f $(exa /usr/share/cows | shuf -n 1) | lolcat -f
-  pokemon-colorscripts.py -r -b --no-title
+  #pokemon-colorscripts.py -r --no-title
 else
   pokemon-colorscripts.py -r --no-title
+  #bullshit | cowsay -f $(exa /usr/share/cows | shuf -n 1) | lolcat -f
 fi
 
 export HISTFILE="$XDG_STATE_HOME"/zsh/hist

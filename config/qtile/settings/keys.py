@@ -7,7 +7,7 @@ terminal = "kitty"
 browser = "firefox"
 file_manager = "pcmanfm"
 # Rofi_theme
-rofi_theme = "dracula"
+rofi_theme = "catppuccin-macchiato"
 
 app_launcher = f"rofi -combi-modi window,drun,ssh\
  -theme {rofi_theme} -font 'hack 10' -show combi -show-icons"
@@ -36,7 +36,6 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod, "control"], "r", lazy.reload_config()),
     ([mod, "control"], "q", lazy.shutdown()),
     ([mod, "control"], "t", lazy.window.toggle_floating()),
-    ([mod, "control"], "s", lazy.spawn("shutdown now")),
     ([mod, "control"], "x", lazy.spawn("reboot")),
 
     # Launch apps
@@ -55,10 +54,10 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
 
 # KeyChords
 keys.extend([
-    KeyChord(key[0], key[1], key[2], mode=True, name="Resize")
-    for key in [
+    KeyChord(key[0], key[1], key[2], mode=True, name=name)
+    for name, key in [
         # Resize
-        ([mod, "shift"], "r", [Key(key[0], key[1], *key[2:]) for key in [
+        ("Resize", ([mod, "shift"], "r", [Key(key[0], key[1], *key[2:]) for key in [
             # Actions
             ([], "a", lazy.layout.grow()),
             ([], "d", lazy.layout.shrink()),
@@ -70,5 +69,11 @@ keys.extend([
             ([], "l", lazy.layout.right()),
             ([], "j", lazy.layout.down()),
             ([], "k", lazy.layout.up()),
-            ]])
-    ]])
+        ]])),
+        ("Power", ([mod, "control"], "p", [Key(key[0], key[1], *key[2:]) for key in [
+            # Actions
+            ([], "s", lazy.spawn("shutdown now")),
+            ([], "r", lazy.spawn("reboot"))
+        ]]))
+    ]
+])
