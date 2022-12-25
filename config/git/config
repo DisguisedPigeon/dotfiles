@@ -5,3 +5,5 @@
 	directory = /opt/flutter
 [pull]
 	rebase = off
+[core]
+	autocrlf = input

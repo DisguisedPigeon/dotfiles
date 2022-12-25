@@ -123,18 +123,41 @@ secondary_widgets = [
     *workspaces(),
 
     separator(),
+    powerline('dark', 'color6'),
 
-    powerline('color1', 'dark'),
+    widget.Chord(**base(bg='color6')),
 
-    widget.CurrentLayoutIcon(**base(bg='color1'), scale=0.65),
+    powerline('color6', 'color5'),
 
-    widget.CurrentLayout(**base(bg='color1'), padding=5),
+    icon(bg="color5", text=' '), # Icon: nf-fa-download
+    
+    widget.CheckUpdates(
+        **base(bg='color5'),
+        colour_have_updates=colors['text'],
+        colour_no_updates=colors['text'],
+        no_update_string='0',
+        display_format='{updates}',
+        update_interval=60,
+        distro="Arch_paru"
+    ),
 
-    powerline('color2', 'color1'),
+    powerline('color5', 'color4'),
+
+    icon(bg="color4", text=' '),  # Icon: nf-fa-feed
+    
+    widget.Net(**base(bg='color4'), interface='wlan0'),
+
+    powerline('color4', 'color3'),
+
+    widget.CurrentLayoutIcon(**base(bg='color3'), scale=0.65),
+
+    widget.CurrentLayout(**base(bg='color3'), padding=5),
+
+    powerline('color3', 'color2'),
+
+    icon(bg="color2", fontsize=17, text=' '), # Icon: nf-mdi-calendar_clock
 
     widget.Clock(**base(bg='color2'), format='%d/%m/%Y - %H:%M '),
-
-    powerline('dark', 'color2'),
 ]
 
 widget_defaults = {
